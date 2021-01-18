@@ -1,0 +1,29 @@
+//    Opdracht 2d
+        public static void main(String[] args)
+
+
+        {
+
+        Timer t1 = new Timer(1300);
+        Timer t2 = new Timer(700);
+        boolean ledState1 = true;
+        boolean ledState2 = true;
+
+            while (true)
+            {
+                if (t1.timeout())
+                {
+                    ledState1 = !ledState1;
+                    BoeBot.digitalWrite(1,ledState1);
+                }
+                if (t2.timeout())
+                {
+                    ledState2 = !ledState2;
+                    BoeBot.digitalWrite(3,ledState2);
+
+                }
+                BoeBot.wait(1);
+            }
+
+
+        }

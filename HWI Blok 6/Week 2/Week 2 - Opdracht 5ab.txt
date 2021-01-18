@@ -1,0 +1,42 @@
+import TI.BoeBot;
+import TI.PWM;
+import TI.Timer;
+
+public class RobotMain {
+    public static void main(String[] args){
+        public static Servo Rechts = new Servo(12);
+        public static Servo Links = new Servo(13);
+
+
+        while (true){
+
+            gaNaarSnelheid(Links, Rechts);
+            emergencyBreak(Links, Rechts);
+
+        }
+
+        public static void gaNaarSnelheid(Servo Links, Servo Rechts){
+
+            for (int i = 0; i<100; i++){
+                Links.update(1500 + 1);
+                Rechts.update(1500 - 1);
+            }
+
+            for (int i = 100; i>100; i--){
+                Links.update(1500-1);
+                Rechts.update(1500+1);
+            }
+
+            Links.update(1500);
+            Rechts.update(1500);
+
+        }
+
+        public static void emergencyBrake(Servo Links, Servo Rechts) {
+            // Boebot stil laten staan
+            Links.update(1500);
+            Rechts.update(1500);
+            BoeBot.wait(250);
+        }
+    }
+}

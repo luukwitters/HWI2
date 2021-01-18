@@ -1,0 +1,30 @@
+import TI.BoeBot;
+import TI.PWM;
+import TI.Timer;
+
+public class RobotMain {
+    public static void main(String[] args){
+        public static Servo Rechts = new Servo(12);
+        public static Servo Links = new Servo(13);
+
+
+        while (true){
+            draaien(10, Links, Rechts);
+
+        }
+
+        public static void Circle(int turningSpeed, Servo Links, Servo Rechts){
+
+//         Calculate the time to turn per Degree
+            int timePerDegree = 400 / turningSpeed;
+
+            // Boebot laten draaien
+            Links.update(1500 - turningspeed + 50)
+            Rechts.update(1500 - turningSpeed);
+            // Boebot de berekende tijd laten wachten
+            BoeBot.wait(timePerDegree * degrees);
+            Links.update(1500);
+            Rechts.update(1500);
+        }
+    }
+}

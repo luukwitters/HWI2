@@ -1,0 +1,48 @@
+    public static void main(String[] args) {
+
+        Timer t1 = new Timer(1300);
+        Timer t2 = new Timer(700);
+        Timer t3 = new Timer(800);
+        Timer t4 = new Timer(1700);
+        boolean ledState1 = false;
+        boolean ledState2 = false;
+
+        t1.mark();
+        t3.mark();
+
+        while (true) {
+            if (t1.timeout()) {
+                boolean state = BoeBot.digitalRead(1);
+                if (state) {
+                    BoeBot.digitalWrite(1, false);
+                    t2.mark();
+                }
+            }
+
+            if (t2.timeout()) {
+                boolean state = BoeBot.digitalRead(1);
+                if (!state) {
+                    BoeBot.digitalWrite(1, true);
+                    t1.mark();
+                }
+            }
+
+            if (t3.timeout()) {
+                boolean state = BoeBot.digitalRead(3);
+                if (state) {
+                    BoeBot.digitalWrite(3, false);
+                    t4.mark();
+                }
+            }
+
+            if (t4.timeout()) {
+                boolean state = BoeBot.digitalRead(3);
+                if (!state) {
+                    BoeBot.digitalWrite(3, true);
+                    t3.mark();
+                }
+            }
+            BoeBot.wait(1);
+
+        }
+    }

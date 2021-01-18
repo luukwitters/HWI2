@@ -1,0 +1,37 @@
+public class Opdracht_4 { 
+    
+    //    Opdracht 4a en 4b en 4ct
+    
+    public static void main(String[] args) {
+
+
+        while (true) {
+            boolean state = BoeBot.digitalRead(4);
+            boolean state2 = BoeBot.digitalRead(10);
+            if (state == false)
+            {
+                BoeBot.digitalWrite(0, true);
+                BoeBot.wait(1000);
+                BoeBot.digitalWrite(0, false);
+                BoeBot.wait(1000);
+            }
+            else if(state2 == false){
+
+                BoeBot.digitalWrite(1,true);
+                BoeBot.wait(700);
+                BoeBot.digitalWrite(1,false);
+                BoeBot.wait(700);
+            }
+
+            else if (state == true && state2 == true){
+                BoeBot.digitalWrite(0, true);
+                BoeBot.wait(1300);
+                BoeBot.digitalWrite(0, false);
+                BoeBot.wait(700);
+            }
+
+        }
+
+    }
+
+}

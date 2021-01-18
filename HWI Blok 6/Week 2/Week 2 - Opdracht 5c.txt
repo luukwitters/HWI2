@@ -1,0 +1,24 @@
+import TI.BoeBot;
+import TI.PWM;
+import TI.Timer;
+
+public class RobotMain {
+    public static void main(String[] args){
+        public static Servo Rechts = new Servo(12);
+        public static Servo Links = new Servo(13);
+
+
+        while (true){
+
+            draaien(10, Links, Rechts);
+
+        }
+
+        public static void turnLeft(int turningSpeed, Servo Links, Servo Rechts){
+            
+            // Boebot laten draaien
+            Links.update(1500 - turningSpeed);
+            Rechts.update(1500 - turningSpeed);
+        }
+    }
+}

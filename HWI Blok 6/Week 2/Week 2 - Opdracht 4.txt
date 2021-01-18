@@ -1,0 +1,2 @@
+4b Ik heb hier gemerkt dat wanneer ik de servomotoren zo afstel dat ze vanaf rust een snelheid van +100 krijgen ik geen verschil meer zie. 
+

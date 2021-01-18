@@ -1,0 +1,33 @@
+    public static void main(String[] args) {
+
+        int iLed = 10;
+        int iFelheid = 4;
+        Boolean bFeller = true;
+
+        PWM pwm = new PWM(iLed, iFelheid);
+        pwm.start();
+
+        while (true) {
+            bFeller = controlLed(pwm, iFelheid, bFeller);
+
+            if (bFeller) {
+                iFelheid++;
+            } else {
+                iFelheid--;
+            }
+
+            BoeBot.wait(8);
+        }
+    }
+//
+    private static boolean controlLed(PWM pwm, int iFelheid, boolean bFeller) {
+        pwm.update(iFelheid);
+
+        if (bFeller && iFelheid == 255) {
+            bFeller = false;
+        } else if (!bFeller && iFelheid == 4) {
+            bFeller = true;
+        }
+
+        return bFeller;
+    }

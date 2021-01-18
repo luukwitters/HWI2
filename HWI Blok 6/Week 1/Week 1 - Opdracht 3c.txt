@@ -1,0 +1,23 @@
+    //    Opdracht 3c
+    public static void main(String[] args) {
+
+
+        while (true) {
+            boolean state = BoeBot.digitalRead(4);
+            if (state)
+            {
+                BoeBot.digitalWrite(0, true);
+            }
+            else{
+
+                BoeBot.digitalWrite(0,false);
+                BoeBot.digitalWrite(1,true);
+                BoeBot.wait(1300);
+                BoeBot.digitalWrite(1,false);
+                BoeBot.wait(700);
+
+            }
+
+        }
+
+    }

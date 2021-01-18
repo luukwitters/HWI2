@@ -1,0 +1,16 @@
+    //Opdracht 2a
+        public static void main(String[] args)
+        {
+            while (true)
+            {
+                BoeBot.digitalWrite(1, true);
+                BoeBot.digitalWrite(3, true);
+                BoeBot.wait(1000);
+                BoeBot.digitalWrite(1, false);
+                BoeBot.digitalWrite(3,false);
+                BoeBot.wait(1000);
+            }
+
+        }
+
+    }

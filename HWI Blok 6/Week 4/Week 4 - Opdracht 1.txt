@@ -1,0 +1,41 @@
+import TI.BoeBot;
+import TI.PinMode;
+import TI.Servo;
+
+public class RobotMain {
+
+    // Servo motoren defineren
+    static Servo sLinks = new Servo(12);
+    static Servo sRechts = new Servo(13);
+
+    public static void main(String[] args) {
+
+        while (true) {
+            
+            lineFollow(sLinks, sRechts);
+
+        }
+    }
+
+    public static void lineFollow(Servo Links, Servo Rechts) {
+
+        if (analogeWaardeR < meetwaarde && analogeWaardeL < meetwaarde) {
+            Rechts.update(1510);
+            Links.update(1490);
+            System.out.println("recht zo die gaat");
+
+        } else if (analogeWaardeR > meetwaarde && analogeWaardeL < meetwaarde) {
+            Rechts.update(1500);
+            Links.update(1500);
+            Rechts.update(1510);
+            Links.update(1500);
+            System.out.println("rechts");
+        } else if (analogeWaardeL > meetwaarde && analogeWaardeR < meetwaarde) {
+            Rechts.update(1500);
+            Links.update(1500);
+            Rechts.update(1500);
+            Links.update(1490);
+            System.out.println("links");
+        }
+    }
+}

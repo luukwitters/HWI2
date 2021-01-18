@@ -1,0 +1,52 @@
+public class Opdracht_2 {
+
+    import TI.BoeBot;
+import TI.PWM;
+import TI.PinMode;
+
+//Opdracht 2
+        static int charge = 0;
+
+        public static void main(String[] args) {
+
+            int iLed = 2;
+            int iLed2 = 0;
+            int charge = 0;
+            int charge2 = 200;
+            Boolean bFeller = true;
+            Boolean bFeller2 = false;
+
+            PWM pwm = new PWM(iLed, charge);
+            pwm.start();
+            PWM pwm2 = new PWM(iLed2, charge2);
+            pwm2.start();
+
+            while (true) {
+                bFeller = controlLed(pwm, charge, bFeller);
+                bFeller2 = controlLed(pwm2, charge2, bFeller2);
+
+                if (bFeller) {
+                    charge++;
+                    charge2--;
+                } else {
+                    charge--;
+                    charge2++;
+                }
+
+                BoeBot.wait(8);
+            }
+        }
+
+        private static boolean controlLed(PWM pwm, int charge, boolean bFeller) {
+            pwm.update(charge);
+
+            if (bFeller && charge == 200) {
+                bFeller = false;
+
+            } else if (!bFeller && charge == 0) {
+                bFeller = true;
+            }
+
+            return bFeller;
+        }
+    }
